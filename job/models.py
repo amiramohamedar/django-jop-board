@@ -20,11 +20,17 @@ class Job(models.Model): #تكافئ table
     jop_type= models.CharField(max_length=15, choices=JOB_TYPE )
     description = models.TextField (max_length=2000 ) 
     published_at = models.DateTimeField(auto_now=True)
-    vacancy = models.IntegerField(default=1)
+    Vacancy = models.IntegerField(default=1)
     salary=models .IntegerField(default=0)
     experience = models.IntegerField (default=1)
-
+    Category = models.ForeignKey('Category',on_delete=models.CASCADE )
 #عشان اظهر ال عنوان الوظيفه اللى هيا jop object اللى رجعلتى لما عملت save لل الوظيفه 
     def __str__ (self):
         return self.title
+
+class Category (models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__ (self):
+        return self.name
 
