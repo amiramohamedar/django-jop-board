@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 '''
 djang model field : # title
 -html widget # charfield input
@@ -12,6 +11,13 @@ JOB_TYPE= (
     ('Full Time', 'Full Time'),
     ('Part Time','Part Time'),
 )
+
+# الداله دى هتتولى مهمه رفع الصورة 
+def image_upload (instance , filename):
+    imagename , extension = filename.split(".") # السطر دا خاص ب الextintion الخاص بالصورة    
+    return "jobs/%s.%s"%(instance.id, extension)  # عاوز تحط ايه هنا 
+
+
 
 # Create your models here.
 class Job(models.Model): #تكافئ table
@@ -24,6 +30,7 @@ class Job(models.Model): #تكافئ table
     salary=models .IntegerField(default=0)
     experience = models.IntegerField (default=1)
     Category = models.ForeignKey('Category',on_delete=models.CASCADE )
+    image = models.ImageField(upload_to=image_upload)
 #عشان اظهر ال عنوان الوظيفه اللى هيا jop object اللى رجعلتى لما عملت save لل الوظيفه 
     def __str__ (self):
         return self.title
