@@ -31,6 +31,14 @@ class Job(models.Model): #تكافئ table
     experience = models.IntegerField (default=1)
     Category = models.ForeignKey('Category',on_delete=models.CASCADE )
     image = models.ImageField(upload_to=image_upload)
+    slug = models.SlugField(blank=True , null=True)
+
+    def save (self,*args , **kwargs):
+        self.slug = slgify(self.title)
+        super(Job,self).save(*args, **kwargs)
+
+
+
 #عشان اظهر ال عنوان الوظيفه اللى هيا jop object اللى رجعلتى لما عملت save لل الوظيفه 
     def __str__ (self):
         return self.title
