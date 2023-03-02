@@ -8,12 +8,11 @@ from django.core.paginator import Paginator
 def job_list(request):
     job_list = Job.objects.all()
 
-    paginator = Paginator(job_list, 1) # Show 25 contacts per 
+    paginator = Paginator(job_list, 3) # Show 25 contacts per 
     # بس هنا المفروض ال pagenator هيعمل باجينتور لا يه ؟ المفروض هيعمل للمتغير للمتغير بتاع كل الوظايف وبعدها بنحدد العدد اللى عايزينه 
     #page_number = request.GET.get('page')
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
     context = {'jobs' :page_obj} #template name
     #context = {'jobs' : job_list }
     return render (request , 'job/job_list.html',context)  

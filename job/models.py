@@ -18,7 +18,6 @@ def image_upload (instance , filename):
     return "jobs/%s.%s"%(instance.id, extension)  # عاوز تحط ايه هنا 
 
 
-
 # Create your models here.
 class Job(models.Model): #تكافئ table
     title = models.CharField(max_length=100 ) # coulmn يكافئ 
@@ -32,9 +31,8 @@ class Job(models.Model): #تكافئ table
     Category = models.ForeignKey('Category',on_delete=models.CASCADE )
     image = models.ImageField(upload_to=image_upload)
     slug = models.SlugField(blank=True , null=True)
-
     def save (self,*args , **kwargs):
-        self.slug = slgify(self.title)
+        self.slug = lugify(self.title)
         super(Job,self).save(*args, **kwargs)
 
 
