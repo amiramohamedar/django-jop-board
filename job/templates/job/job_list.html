@@ -1,5 +1,4 @@
-
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
     {% block body%}
     <!-- bradcam_area  -->
     <div class="bradcam_area bradcam_bg_1">
@@ -165,7 +164,6 @@
                                             {% endfor %}
                                             
 
-
                                             {% if jobs.has_next %}
                                                 <li><a href="?page={{jobs.next_page_number}}"> <i class="ti-angle-right"></i> </a></li>
                                             {% endif %}
@@ -173,12 +171,11 @@
                                     </div>
                                 </div>
                             </div>
-                        {% endif %
+                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
