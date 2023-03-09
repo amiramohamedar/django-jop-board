@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-
+from django.contrib.auth.models import User
 '''
 djang model field : # title
 -html widget # charfield input
@@ -20,6 +20,7 @@ def image_upload (instance , filename):
 
 # Create your models here.
 class Job(models.Model): #تكافئ table
+    owner = models.ForeignKey(User, related_name='job_owner',on_delete=models.CASCADE)
     title = models.CharField(max_length=100 ) # coulmn يكافئ 
     #location 
     jop_type= models.CharField(max_length=15, choices=JOB_TYPE )
