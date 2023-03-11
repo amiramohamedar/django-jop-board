@@ -456,6 +456,7 @@ h3 {
   -o-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 /* line 43, ../../Arafath/CL/December/235. Job board/HTML/scss/_btn.scss */
